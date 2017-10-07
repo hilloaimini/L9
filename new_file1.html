@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+		<style type="text/css">
+			.section {z-index: -999;
+				background: url(img/bg1.png) no-repeat center;
+				background-size: cover;
+			position: relative;
+			
+			
+			}
+			.section span{z-index: 999;position: absolute;}
+			
+			html{font-size: calc(100vw/7.5);}
+			
+		</style>
+	</head>
+
+	<body>
+   <div id="fullpage">
+		<div class="section">
+			<span class="road" rel="3.75,-1,0.8,1.0"><img src="img/road.png"width="80"height="62" /> </span>
+			<span class="moon" rel=" 3.75,-1,0,0"><img src="img/gong.png"/ ></span>
+			<span class="stone" rel=" -3.75,2.5,0,2.0"><img src="img/pink.png" /></span>
+			<span class="girl-1"rel=" -3.75,2.0,0.27,1.75"><img src="img/girl1.png" /></span>
+			<span class="girl-2"rel=" 10.5,2.5,0.15,2.0"><img src="img/girl_2.png" /></span>
+			
+		</div>
+   </div>
+				<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+				<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+				<script type="text/javascript">
+					
+					
+					$(document).ready(function(){
+						$('#fullpage').fullpage({
+							
+							afterLoad:function(anchorLink,index){
+								var span=$(".section span");
+								span.each(function(){
+									var data = $(this).attr("rel").split(",");
+									
+									$(this).animate({
+										left:data[2]+"rem",
+										top:data[3]+"rem"
+										
+									},700);
+								});
+							},
+						});
+					});
+					
+				</script>
+
+	</body>
+
+</html>
